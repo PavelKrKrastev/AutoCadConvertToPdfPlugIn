@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCAD", "AutoCAD\AutoCAD.csproj", "{BFED6574-A15C-40A5-BF07-C086643F59CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFED6574-A15C-40A5-BF07-C086643F59CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFED6574-A15C-40A5-BF07-C086643F59CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFED6574-A15C-40A5-BF07-C086643F59CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFED6574-A15C-40A5-BF07-C086643F59CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
