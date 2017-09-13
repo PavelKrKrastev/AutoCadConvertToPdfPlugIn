@@ -30,10 +30,10 @@ namespace AutoCAD
 
         static void AddContentToRibbon(RibbonTab RibbonTab)
         {
-            RibbonTab.Panels.Add(AddPanelToRibbon());
+            RibbonTab.Panels.Add(AddPanelAndButtonToRibbon());
         }
 
-        static RibbonPanel AddPanelToRibbon()
+        static RibbonPanel AddPanelAndButtonToRibbon()
         {
             RibbonPanelSource AutoCadRibbonSource = new RibbonPanelSource() { Title = "Convert" };
             RibbonPanel AutoCadRibbonPanel = new RibbonPanel() { Source = AutoCadRibbonSource };
@@ -44,7 +44,7 @@ namespace AutoCAD
                 Size = RibbonItemSize.Large,
                 Orientation = System.Windows.Controls.Orientation.Vertical,
                 ShowText = true,
-                Text = "Convert to Pdf",
+                Text = "Convert 2D to Pdf",
                 LargeImage = ButtonImage,
                 CommandHandler = new MyRibbonButtonCommandHandler()
             };

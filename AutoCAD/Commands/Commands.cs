@@ -33,16 +33,16 @@ namespace AutoCAD
                 using (FileStream OpenedDocumentStream = new FileStream(drawingPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     Aspose.CAD.Image image = Aspose.CAD.Image.Load(OpenedDocumentStream);
-                    Aspose.CAD.ImageOptions.CadRasterizationOptions rasterizationOptions = new Aspose.CAD.ImageOptions.CadRasterizationOptions();
-                    rasterizationOptions.PageWidth = 1600;
-                    rasterizationOptions.PageHeight = 1600;
-                    rasterizationOptions.Layouts = new string[] { "Model" };
-                    rasterizationOptions.DrawType = Aspose.CAD.FileFormats.Cad.CadDrawTypeMode.UseObjectColor;
-                    rasterizationOptions.UnitType = Aspose.CAD.ImageOptions.UnitType.Centimenter;
-                    rasterizationOptions.CenterDrawing = true;
+                    Aspose.CAD.ImageOptions.CadRasterizationOptions RasterizationOptions = new Aspose.CAD.ImageOptions.CadRasterizationOptions();
+                    RasterizationOptions.PageWidth = 1400;
+                    RasterizationOptions.PageHeight = 1400;
+                    RasterizationOptions.Layouts = new string[] { "Model" };
+                    RasterizationOptions.DrawType = Aspose.CAD.FileFormats.Cad.CadDrawTypeMode.UseObjectColor;
+                    RasterizationOptions.UnitType = Aspose.CAD.ImageOptions.UnitType.Centimenter;
+                    RasterizationOptions.CenterDrawing = true;
 
                     Aspose.CAD.ImageOptions.PdfOptions pdfOptions = new Aspose.CAD.ImageOptions.PdfOptions();
-                    pdfOptions.VectorRasterizationOptions = rasterizationOptions;
+                    pdfOptions.VectorRasterizationOptions = RasterizationOptions;
 
                     _saveAsPdfPath = _saveDialog.FileName;
 
