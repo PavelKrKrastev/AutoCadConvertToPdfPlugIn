@@ -116,20 +116,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RibbonTab\AddTabToRibbon.cs" />
-    <Compile Include="Commands\myCommands.Designer.cs">
+    <Compile Include="Commands\Commands.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>myCommands.resx</DependentUpon>
+      <DependentUpon>Commands.resx</DependentUpon>
     </Compile>
-    <Compile Include="PlugInInitialize\myPlugin.cs" />
-    <Compile Include="Commands\myCommands.cs" />
+    <Compile Include="PlugInInitialize\InitializePlugin.cs" />
+    <Compile Include="Commands\Commands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Commands\myCommands.resx">
-      <DependentUpon>myCommands.cs</DependentUpon>
+    <EmbeddedResource Include="Commands\Commands.resx">
+      <DependentUpon>Commands.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>myCommands.Designer.cs</LastGenOutput>
+      <LastGenOutput>Commands.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

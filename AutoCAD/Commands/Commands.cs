@@ -19,6 +19,7 @@ namespace AutoCAD
         private SaveFileDialog _saveDialog = new SaveFileDialog() { Filter = _saveDialogFilter };
         #endregion Private Properties
 
+        #region Convert 2D dwg to Pdf
         [CommandMethod("myPdfConvert", CommandFlags.Modal | CommandFlags.Undefined)]
         public void ConvertDwgToPdf()
         {
@@ -33,8 +34,9 @@ namespace AutoCAD
                 {
                     Aspose.CAD.Image image = Aspose.CAD.Image.Load(OpenedDocumentStream);
                     Aspose.CAD.ImageOptions.CadRasterizationOptions rasterizationOptions = new Aspose.CAD.ImageOptions.CadRasterizationOptions();
-                    rasterizationOptions.PageWidth = 1600;
-                    rasterizationOptions.PageHeight = 1600;
+                    rasterizationOptions.PageWidth = 1200;
+                    rasterizationOptions.PageHeight = 1200;
+                    rasterizationOptions.DrawType = Aspose.CAD.FileFormats.Cad.CadDrawTypeMode.UseObjectColor;
 
                     Aspose.CAD.ImageOptions.PdfOptions pdfOptions = new Aspose.CAD.ImageOptions.PdfOptions();
                     pdfOptions.VectorRasterizationOptions = rasterizationOptions;
@@ -45,5 +47,6 @@ namespace AutoCAD
                 }
             }
         }
+        #endregion Convert 2D dwg to Pdf
     }
 }

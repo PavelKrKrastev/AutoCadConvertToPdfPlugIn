@@ -9,13 +9,16 @@ namespace AutoCAD
 {
     public class AddTabToRibbon
     {
+        #region Static variables
         private static string _projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
         private static string _pathToFile = Path.Combine(_projectDirectory, "Resources");
         private static string _fileName = "convert.png";
         private static string _filePath = Path.Combine(_pathToFile, _fileName);
         private static Uri _imageUri = new Uri(_filePath);
         private static BitmapImage ButtonImage = new BitmapImage(_imageUri);
+        #endregion Static variables
 
+        #region Add tab and button to AutoCad ribbon
         [CommandMethod("AddCustomTabToRibbon", CommandFlags.Transparent)]
         public void AddTabToAutoCadRibbon()
         {
@@ -49,7 +52,9 @@ namespace AutoCAD
             AutoCadRibbonSource.Items.Add(AutoCadConvertToPdfButton);
             return AutoCadRibbonPanel;
         }
+        #endregion Add tab and button to AutoCad ribbon
 
+        #region Button click event
         public class MyRibbonButtonCommandHandler : System.Windows.Input.ICommand
         {
             public bool CanExecute(object parameter)
@@ -66,5 +71,6 @@ namespace AutoCAD
                 dwg.SendStringToExecute((string)cmd.CommandParameter, true, false, true);
             }
         }
+        #endregion Button click event
     }
 }
