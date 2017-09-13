@@ -34,9 +34,12 @@ namespace AutoCAD
                 {
                     Aspose.CAD.Image image = Aspose.CAD.Image.Load(OpenedDocumentStream);
                     Aspose.CAD.ImageOptions.CadRasterizationOptions rasterizationOptions = new Aspose.CAD.ImageOptions.CadRasterizationOptions();
-                    rasterizationOptions.PageWidth = 1200;
-                    rasterizationOptions.PageHeight = 1200;
+                    rasterizationOptions.PageWidth = 1600;
+                    rasterizationOptions.PageHeight = 1600;
+                    rasterizationOptions.Layouts = new string[] { "Model" };
                     rasterizationOptions.DrawType = Aspose.CAD.FileFormats.Cad.CadDrawTypeMode.UseObjectColor;
+                    rasterizationOptions.UnitType = Aspose.CAD.ImageOptions.UnitType.Centimenter;
+                    rasterizationOptions.CenterDrawing = true;
 
                     Aspose.CAD.ImageOptions.PdfOptions pdfOptions = new Aspose.CAD.ImageOptions.PdfOptions();
                     pdfOptions.VectorRasterizationOptions = rasterizationOptions;
