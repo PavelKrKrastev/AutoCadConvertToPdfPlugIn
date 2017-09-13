@@ -1,1 +1,1 @@
-# AutoCadConvertToPdfPlugIn
+# Convert 2D autocad drawings to Pdf
