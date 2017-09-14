@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0" ProductType="Application" AutodeskProduct="AutoCAD" Name="PdfConvert">
+ <Components>
+ <RuntimeRequirements OS="Win32|Win64" Platform="AutoCAD*"/>
+<ComponentEntry AppName="PluginManager" ModuleName="./ConvertResources/AutoCAD.dll" AppDescription="." LoadOnAutoCADSrartup = "True">
+</ComponentEntry>
+ </Components>
+</ApplicationPackage>

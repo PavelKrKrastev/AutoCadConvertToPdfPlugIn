@@ -9,15 +9,6 @@ namespace AutoCAD
 {
     public class AddTabToRibbon
     {
-        #region Static variables
-        private static string _projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-        private static string _pathToFile = Path.Combine(_projectDirectory, "Resources");
-        private static string _fileName = "convert.png";
-        private static string _filePath = Path.Combine(_pathToFile, _fileName);
-        private static Uri _imageUri = new Uri(_filePath);
-        private static BitmapImage ButtonImage = new BitmapImage(_imageUri);
-        #endregion Static variables
-
         #region Add tab and button to AutoCad ribbon
         [CommandMethod("AddCustomTabToRibbon", CommandFlags.Transparent)]
         public void AddTabToAutoCadRibbon()
@@ -28,26 +19,27 @@ namespace AutoCAD
             AddContentToRibbon(AutoCadRibbonTab);
         }
 
-        static void AddContentToRibbon(RibbonTab RibbonTab)
+         private void AddContentToRibbon(RibbonTab RibbonTab)
         {
             RibbonTab.Panels.Add(AddPanelAndButtonToRibbon());
         }
 
-        static RibbonPanel AddPanelAndButtonToRibbon()
+         RibbonPanel AddPanelAndButtonToRibbon()
         {
             RibbonPanelSource AutoCadRibbonSource = new RibbonPanelSource() { Title = "Convert" };
             RibbonPanel AutoCadRibbonPanel = new RibbonPanel() { Source = AutoCadRibbonSource };
-            RibbonButton PanelButton = new RibbonButton() { Image = ButtonImage, Name = "Pdf" };
+            RibbonButton PanelButton = new RibbonButton() { Image = RibbonButtonImageSource("AutoCAD.Resources.convert.png"), Name = "Pdf" };
             RibbonButton AutoCadConvertToPdfButton = new RibbonButton()
             {
                 Name = "PdfConvert",
                 Size = RibbonItemSize.Large,
                 Orientation = System.Windows.Controls.Orientation.Vertical,
                 ShowText = true,
-                Text = "Convert 2D to Pdf",
-                LargeImage = ButtonImage,
+                Text = "Convert" + Environment.NewLine + "2D to Pdf",
+                LargeImage = RibbonButtonImageSource("AutoCAD.Resources.convert.png"),
                 CommandHandler = new MyRibbonButtonCommandHandler()
             };
+        
             AutoCadConvertToPdfButton.CommandParameter = "._myPdfConvert ";
             AutoCadRibbonSource.Items.Add(AutoCadConvertToPdfButton);
             return AutoCadRibbonPanel;
@@ -72,5 +64,14 @@ namespace AutoCAD
             }
         }
         #endregion Button click event
+
+        #region Get image for ribbon button from resources
+        private System.Windows.Media.ImageSource RibbonButtonImageSource(string EmbeddedPath)
+        {
+            Stream stream = this.GetType().Assembly.GetManifestResourceStream(EmbeddedPath);
+            var decoder = new System.Windows.Media.Imaging.PngBitmapDecoder(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            return decoder.Frames[0];
+        }
+        #endregion Get image for ribbon button from resources
     }
 }
