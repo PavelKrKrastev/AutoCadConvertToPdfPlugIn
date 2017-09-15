@@ -23,7 +23,6 @@ namespace AutoCAD
         [CommandMethod("myPdfConvert", CommandFlags.Modal | CommandFlags.Undefined)]
         public void ConvertDwgToPdf()
         {
-            Autocad.Document dwg = Autocad.Application.DocumentManager.MdiActiveDocument;
             string drawingPath = Autocad.Application.DocumentManager.MdiActiveDocument.Database.Filename;
 
             _saveDialog.FileName = Path.GetFileNameWithoutExtension(drawingPath);
