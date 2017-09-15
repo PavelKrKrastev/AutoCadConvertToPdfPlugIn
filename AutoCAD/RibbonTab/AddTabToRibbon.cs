@@ -37,7 +37,7 @@ namespace AutoCAD
                 ShowText = true,
                 Text = "Convert" + Environment.NewLine + "2D to Pdf",
                 LargeImage = RibbonButtonImageSource("AutoCAD.Resources.convert.png"),
-                CommandHandler = new MyRibbonButtonCommandHandler()
+                CommandHandler = new RibbonButtonCommandHandler()
             };
         
             AutoCadConvertToPdfButton.CommandParameter = "._myPdfConvert ";
@@ -47,7 +47,7 @@ namespace AutoCAD
         #endregion Add tab and button to AutoCad ribbon
 
         #region Button click event
-        public class MyRibbonButtonCommandHandler : System.Windows.Input.ICommand
+        public class RibbonButtonCommandHandler : System.Windows.Input.ICommand
         {
             public bool CanExecute(object parameter)
             {
@@ -58,9 +58,9 @@ namespace AutoCAD
 
             public void Execute(object parameter)
             {
-                RibbonCommandItem cmd = parameter as RibbonCommandItem;
-                Document dwg = Application.DocumentManager.MdiActiveDocument;
-                dwg.SendStringToExecute((string)cmd.CommandParameter, true, false, true);
+                RibbonCommandItem CommandItem = parameter as RibbonCommandItem;
+                Document DwgDocument = Application.DocumentManager.MdiActiveDocument;
+                DwgDocument.SendStringToExecute((string)CommandItem.CommandParameter, true, false, true);
             }
         }
         #endregion Button click event
@@ -68,9 +68,9 @@ namespace AutoCAD
         #region Get image for ribbon button from resources
         private System.Windows.Media.ImageSource RibbonButtonImageSource(string EmbeddedPath)
         {
-            Stream stream = this.GetType().Assembly.GetManifestResourceStream(EmbeddedPath);
-            var decoder = new System.Windows.Media.Imaging.PngBitmapDecoder(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-            return decoder.Frames[0];
+            Stream ImageSream = this.GetType().Assembly.GetManifestResourceStream(EmbeddedPath);
+            var PngDecoder = new System.Windows.Media.Imaging.PngBitmapDecoder(ImageSream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            return PngDecoder.Frames[0];
         }
         #endregion Get image for ribbon button from resources
     }

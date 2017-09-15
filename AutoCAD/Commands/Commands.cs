@@ -24,7 +24,6 @@ namespace AutoCAD
         public void ConvertDwgToPdf()
         {
             string drawingPath = Autocad.Application.DocumentManager.MdiActiveDocument.Database.Filename;
-
             _saveDialog.FileName = Path.GetFileNameWithoutExtension(drawingPath);
 
             if (_saveDialog.ShowDialog() == DialogResult.OK)
