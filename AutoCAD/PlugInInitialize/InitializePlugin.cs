@@ -23,6 +23,7 @@ namespace AutoCAD
         {
             AddTabToRibbon NewRibbonTab = new AddTabToRibbon();
             NewRibbonTab.AddTabToAutoCadRibbon();
+            Application.Idle -= callback_Idle;
         }
 
     }
